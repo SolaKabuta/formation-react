@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation React - Deepsite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepBlue: '#1E2A38',
+                        actionGreen: '#00FFB2',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #25D366;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .module-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .module-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background-color: #00FFB2;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-deepBlue text-white py-4 px-6 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-code text-actionGreen text-2xl"></i>
+                <span class="text-xl font-bold">Deepsite</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#formation" class="hover:text-actionGreen transition">La formation</a>
+                <a href="#programme" class="hover:text-actionGreen transition">Programme</a>
+                <a href="#avantages" class="hover:text-actionGreen transition">Pourquoi nous ?</a>
+                <a href="#temoignages" class="hover:text-actionGreen transition">Témoignages</a>
+            </div>
+            <button class="md:hidden text-xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-deepBlue text-white py-20 px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Maîtrisez les bases de React et développez vos premiers composants en 2 semaines
+                </h1>
+                <p class="text-xl mb-8 text-gray-300">
+                    Une formation intensive pensée pour les développeur·ses débutant·es et curieux·ses du JavaScript moderne.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#contact" class="bg-actionGreen text-deepBlue font-bold py-3 px-6 rounded-lg text-center hover:bg-opacity-90 transition">
+                        Prendre un rendez-vous
+                    </a>
+                    <a href="#" class="bg-white text-deepBlue font-bold py-3 px-6 rounded-lg text-center hover:bg-gray-100 transition">
+                        <i class="fas fa-download mr-2"></i> Programme PDF
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://cdn.pixabay.com/photo/2017/08/05/00/12/code-2580807_1280.jpg" alt="Code React" class="rounded-lg shadow-xl max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Formation Section -->
+    <section id="formation" class="py-16 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-deepBlue">Découvrez notre formation React</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-actionGreen text-4xl mb-4">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Objectifs</h3>
+                    <p class="text-gray-600">
+                        Acquérir les fondamentaux de React, comprendre le cycle de vie des composants et être capable de créer des applications web interactives.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-actionGreen text-4xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Durée</h3>
+                    <p class="text-gray-600">
+                        2 semaines intensives (40 heures) avec un rythme adapté aux débutants. Formation disponible en présentiel ou à distance.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-actionGreen text-4xl mb-4">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Compétences</h3>
+                    <ul class="list-disc pl-5 text-gray-600 space-y-1">
+                        <li>Création de composants</li>
+                        <li>Gestion du state</li>
+                        <li>Utilisation des hooks</li>
+                        <li>Routing avec React Router</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-actionGreen text-4xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Public cible</h3>
+                    <p class="text-gray-600">
+                        Développeurs débutants en JavaScript, personnes en reconversion professionnelle, étudiants souhaitant se spécialiser en frontend.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programme Section -->
+    <section id="programme" class="py-16 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-deepBlue">Programme détaillé</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-12">
+                    <h3 class="text-2xl font-bold mb-6 text-deepBlue">Semaine 1 : Les fondamentaux</h3>
+                    <div class="space-y-4">
+                        <div class="module-item">
+                            <h4 class="font-bold text-lg">Introduction à React</h4>
+                            <p class="text-gray-600">Présentation de l'écosystème React, JSX, création du premier composant.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4 class="font-bold text-lg">Composants et props</h4>
+                            <p class="text-gray-600">Découpage en composants réutilisables, passage de données via les props.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4 class="font-bold text-lg">State et événements</h4>
+                            <p class="text-gray-600">Gestion de l'état local, gestion des événements utilisateur.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-deepBlue">Semaine 2 : Approfondissement</h3>
+                    <div class="space-y-4">
+                        <div class="module-item">
+                            <h4 class="font-bold text-lg">Les hooks React</h4>
+                            <p class="text-gray-600">useState, useEffect, useContext et création de hooks personnalisés.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4 class="font-bold text-lg">Gestion des formulaires</h4>
+                            <p class="text-gray-600">Contrôlé vs non-contrôlé, validation, soumission.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4 class="font-bold text-lg">React Router</h4>
+                            <p class="text-gray-600">Navigation entre vues, paramètres d'URL, redirections.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4 class="font-bold text-lg">Projet final</h4>
+                            <p class="text-gray-600">Mise en pratique sur un cas concret avec accompagnement personnalisé.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages Section -->
+    <section id="avantages" class="py-16 px-6 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-deepBlue">Pourquoi choisir Deepsite ?</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="flex items-start">
+                    <div class="bg-actionGreen text-white p-3 rounded-full mr-4">
+                        <i class="fas fa-chalkboard-teacher text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Formateurs experts</h3>
+                        <p class="text-gray-600">
+                            Nos formateurs sont des développeurs React expérimentés qui travaillent sur des projets concrets au quotidien.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-actionGreen text-white p-3 rounded-full mr-4">
+                        <i class="fas fa-laptop-code text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Pratique intensive</h3>
+                        <p class="text-gray-600">
+                            70% de pratique avec des exercices progressifs et un projet fil rouge pour consolider les acquis.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-actionGreen text-white p-3 rounded-full mr-4">
+                        <i class="fas fa-certificate text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Certification</h3>
+                        <p class="text-gray-600">
+                            Obtenez une certification reconnue par l'écosystème professionnel à l'issue de la formation.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start">
+                    <div class="bg-actionGreen text-white p-3 rounded-full mr-4">
+                        <i class="fas fa-briefcase text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-2">Suivi post-formation</h3>
+                        <p class="text-gray-600">
+                            Accès à une communauté d'anciens élèves et support technique pendant 3 mois après la formation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages Section -->
+    <section id="temoignages" class="py-16 px-6 bg-white">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-deepBlue">Ils nous ont fait confiance</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-deepBlue flex items-center justify-center text-white font-bold mr-4">S</div>
+                        <div>
+                            <h4 class="font-bold">Sarah M.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Venant d'une reconversion, cette formation m'a permis d'acquérir des bases solides en React. Les exercices pratiques étaient parfaitement calibrés."
+                    </p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-deepBlue flex items-center justify-center text-white font-bold mr-4">T</div>
+                        <div>
+                            <h4 class="font-bold">Thomas L.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "Le formateur était très pédagogue et disponible. J'ai particulièrement apprécié les bonnes pratiques partagées qui vont au-delà de la simple syntaxe."
+                    </p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-deepBlue flex items-center justify-center text-white font-bold mr-4">A</div>
+                        <div>
+                            <h4 class="font-bold">Amélie D.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "La formation est intense mais très bien structurée. Le projet final m'a permis de mettre en pratique toutes les notions et de construire un portfolio."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6 bg-deepBlue text-white">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">Prêt·e à démarrer votre formation React ?</h2>
+            
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-actionGreen p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold mb-4 text-deepBlue">Informations pratiques</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-calendar-alt mt-1 mr-3 text-deepBlue"></i>
+                                <div>
+                                    <h4 class="font-bold text-deepBlue">Prochaines sessions</h4>
+                                    <p class="text-deepBlue">5 juin 2023 (présentiel)<br>12 juin 2023 (en ligne)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-euro-sign mt-1 mr-3 text-deepBlue"></i>
+                                <div>
+                                    <h4 class="font-bold text-deepBlue">Tarif</h4>
+                                    <p class="text-deepBlue">1 200€ (financement possible)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt mt-1 mr-3 text-deepBlue"></i>
+                                <div>
+                                    <h4 class="font-bold text-deepBlue">Lieu</h4>
+                                    <p class="text-deepBlue">Paris 10e ou en visioconférence</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8">
+                        <form id="contactForm" class="space-y-4">
+                            <div>
+                                <label for="prenom" class="block text-gray-700 font-medium mb-1">Prénom *</label>
+                                <input type="text" id="prenom" name="prenom" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-actionGreen focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="nom" class="block text-gray-700 font-medium mb-1">Nom *</label>
+                                <input type="text" id="nom" name="nom" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-actionGreen focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-1">Email *</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-actionGreen focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-1">Téléphone</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-actionGreen focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="creneau" class="block text-gray-700 font-medium mb-1">Créneau préféré *</label>
+                                <select id="creneau" name="creneau" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-actionGreen focus:border-transparent">
+                                    <option value="">Sélectionnez un créneau</option>
+                                    <option value="matin">Matin (9h-12h)</option>
+                                    <option value="aprem">Après-midi (14h-17h)</option>
+                                    <option value="soir">Soirée (18h-21h)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-actionGreen text-deepBlue font-bold py-3 px-6 rounded-lg hover:bg-opacity-90 transition">
+                                Envoyer ma demande
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-code text-actionGreen text-2xl"></i>
+                        <span class="text-xl font-bold">Deepsite</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Spécialistes de la formation en développement web depuis 2015. Notre mission : rendre la programmation accessible à tous.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Liens utiles</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-actionGreen transition">Nos formations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-actionGreen transition">Blog technique</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-actionGreen transition">Espace entreprises</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-actionGreen transition">Mentions légales</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i> 12 rue du Code, 75010 Paris
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i> 01 23 45 67 89
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i> contact@deepsite.fr
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>© 2023 Deepsite. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/33123456789" class="whatsapp-btn" aria-label="Contactez-nous sur WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Nous vous contacterons rapidement pour confirmer votre rendez-vous.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
